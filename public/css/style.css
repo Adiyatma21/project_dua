@@ -1,0 +1,6 @@
+.tombol{
+    display: flex;
+    margin:50px 50px;
+    justify-content: center;
+    align-items: center;
+}
