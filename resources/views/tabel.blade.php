@@ -11,11 +11,11 @@
         </div>
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
-            <div class="mx-3">
-              <a type="btn" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#input_nilai">
+             <div class="mx-3">
+              <!-- <a type="btn" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#input_nilai">
                 Input Nilai
-              </a>
-            </div>
+              </a> -->
+            </div> 
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
@@ -111,7 +111,7 @@
                     <span class="text-secondary text-xs font-weight-bold">5</span>
                   </td>
                   <td class="align-middle text-center">
-                    <a type="button" class="btn bg-gradient-primary" href="/preview">
+                    <a type="button" class="btn bg-gradient-primary" href="/preview/{{$a->id}}">
                       Edit
                     </a>
                     <button type="button" class="btn bg-gradient-primary">

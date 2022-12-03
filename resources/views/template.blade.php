@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('template/assets/img/apple-icon.png')}}">
   <link rel="icon" type="image/png" href="{{asset('template/assets/img/favicon.png')}}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>
     SIPIKAD 2022
   </title>
@@ -23,7 +24,7 @@
   <link id="pagestyle" href="{{asset('template/assets/css/material-dashboard.css?v=3.0.4')}}" rel="stylesheet" />
   <link id="pagestyle" href="{{asset('css/style.css')}}" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -55,6 +56,7 @@
             <span class="nav-link-text ms-1">Tables</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link text-white " href="/knn">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -70,6 +72,22 @@
             </div>
             <span class="nav-link-text ms-1">Report</span>
           </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/matkul">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">table_view</i>
+              </div>
+              <span class="nav-link-text ms-1">Matkul</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white " href="/kelom">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">table_view</i>
+              </div>
+              <span class="nav-link-text ms-1">Kelompok</span>
+            </a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white " href="/profile">
@@ -321,16 +339,14 @@
   </div>
   <!--   Core JS Files   -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="{{asset('template/assets/js/core/popper.min.js')}}"></script>
   <script src="{{asset('template/assets/js/core/bootstrap.min.js')}}"></script>
   <script src="{{asset('template/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{asset('template/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
-  <script>
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-    });
-  </script>
+  @yield('script')
+  
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

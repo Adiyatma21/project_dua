@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\MatkulController;
+use App\Http\Controllers\KelomController;
+use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UserController;
+use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +42,28 @@ Route::get('/profile', function () {
 })->middleware(['auth', 'verified'])->name('profile');
 
 Route::get('/preview/{dosen}', [PagesController::class, 'preview'])->middleware(['auth', 'verified'])->name('preview');
+Route::post('/preview-store', [NilaiController::class, 'store']);
+Route::delete('/preview-destroy/{pertama}', [NilaiController::class, 'destroy']);
+Route::put('/preview-update/{pertama}', [NilaiController::class, 'update']);
+
+
+
+
+Route::get('/matkul',[PagesController::class, 'matkul'])->middleware(['auth', 'verified'])->name('matkul');
+Route::post('/matkul-store',[MatkulController::class, 'store']);
+Route::delete('/matkul-destroy/{matkul}',[MatkulController::class, 'destroy']);
+Route::put('matkul-update/{matkul}', [MatkulController::class, 'update']);
+
+Route::get('/kelom', [PagesController::class, 'kelom'])->middleware(['auth', 'verified'])->name('kelom');
+Route::post('/kelom-store', [KelomController::class, 'store']);
+Route::delete('/kelom-destroy/{kelom}', [KelomController::class, 'destroy']);
+Route::put('/kelom-update/{kelom}', [KelomController::class, 'update']);
+
+
+
+Route::post('refresh-csrf', function() {
+    return csrf_token();
+});
 
 
 
